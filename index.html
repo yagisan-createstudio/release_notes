@@ -2,50 +2,60 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#ecebf1">
-<title>利用規約 | Mac風テスト</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#e8e7f0">
+<title>Document Center | Mac風テスト</title>
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif}
-body{background:linear-gradient(135deg,#f4f1f7,#e6e8f0);color:#292630}
-.desktop{min-height:100vh;min-height:100dvh;padding:clamp(12px,4vw,52px);display:flex;align-items:center;justify-content:center}
-.window{width:min(1160px,100%);height:min(820px,calc(100dvh - 2 * clamp(12px,4vw,52px)));min-height:320px;display:flex;flex-direction:column;background:#fff;border:1px solid #d2d2db;border-radius:14px;overflow:hidden;box-shadow:0 25px 70px #25203527,0 4px 15px #25203512;transition:width .25s,height .25s}
-.toolbar{height:46px;flex:none;display:grid;grid-template-columns:82px minmax(0,1fr) 82px;align-items:center;padding:0 15px;background:linear-gradient(#fafafa,#f0eff3);border-bottom:1px solid #dedde5}
-.controls{display:flex;align-items:center;gap:8px}
-.controls button{width:13px;height:13px;padding:0;border:1px solid #0002;border-radius:50%;cursor:pointer}
-.controls button:focus-visible,.launch:focus-visible{outline:2px solid #73429b;outline-offset:3px}
-.red{background:#ff5f57}.yellow{background:#febc2e}.green{background:#28c840}
-.title{font-size:12px;font-weight:600;color:#67636e;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.frame{flex:1;min-height:0}.frame iframe{display:block;width:100%;height:100%;border:0;background:white}
-.window.minimized{height:46px;min-height:46px}.window.minimized .frame{display:none}
-.window.maximized{width:100%;height:calc(100dvh - 24px);max-height:none}.window.closed{display:none}
-.launch{display:none;padding:17px 25px;background:white;color:#613a80;border:1px solid #e1dbe8;border-radius:15px;box-shadow:0 10px 30px #0002;font:inherit;cursor:pointer}.launch.visible{display:block}
-@media(max-width:600px){.desktop{padding:12px}.window{height:calc(100dvh - 24px);max-height:none;border-radius:12px}.toolbar{height:44px;padding:0 12px;grid-template-columns:68px minmax(0,1fr) 68px}.controls{gap:7px}.controls button{width:12px;height:12px}.title{font-size:11px}}
-@media(prefers-reduced-motion:reduce){.window{transition:none}}
+:root{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#252631}
+*{box-sizing:border-box}html,body{height:100%;margin:0}button{font:inherit}button:focus-visible{outline:3px solid #7354a2;outline-offset:3px}
+body{overflow:hidden;background:linear-gradient(145deg,#d8d5e7 0%,#eef0f6 48%,#cfd8e6 100%)}
+.desktop{position:relative;width:100%;height:100vh;height:100dvh;overflow:hidden;padding:clamp(14px,3.6vw,48px)}
+.desktop::before{content:"";position:absolute;width:60vw;height:60vw;border-radius:50%;background:#ffffff40;filter:blur(65px);top:-30vw;right:-15vw;pointer-events:none}
+.menu-bar{position:absolute;top:0;left:0;right:0;height:31px;background:#ffffff65;backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-size:12px;color:#34323c;z-index:2}
+.menu-brand{font-weight:750;letter-spacing:.01em}.clock{font-variant-numeric:tabular-nums}
+.window{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(1080px,calc(100% - 110px));height:min(730px,calc(100% - 130px));min-height:230px;background:#fff;border:1px solid #ffffffbd;border-radius:13px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 75px #28314b36,0 4px 15px #28314b18;z-index:3}
+.window[hidden]{display:none}.window.maximized{width:calc(100% - 24px);height:calc(100% - 55px);top:calc(50% + 12px)}.window.minimized{height:46px;min-height:46px;top:auto;bottom:90px;transform:translateX(-50%)}
+.toolbar{height:46px;flex:none;background:linear-gradient(#f9f9fb,#eeedf2);border-bottom:1px solid #dadbe2;display:grid;grid-template-columns:94px minmax(0,1fr) 94px;align-items:center;padding:0 15px}
+.lights{display:flex;gap:8px}.light{height:13px;width:13px;border-radius:50%;border:1px solid #0002;padding:0;cursor:pointer}.red{background:#ff5f57}.yellow{background:#febc2e}.green{background:#28c840}.window-title{text-align:center;font-size:12px;font-weight:650;color:#555661;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tabs{display:flex;gap:4px;padding:10px 12px;background:#f7f7fa;border-bottom:1px solid #e7e7ec;flex:none}.tab{flex:1;border:0;border-radius:8px;padding:10px 6px;background:transparent;color:#666675;font-size:13px;font-weight:650;cursor:pointer}.tab[aria-selected="true"]{background:#fff;color:#633c8a;box-shadow:0 1px 5px #1716271c}
+.content{flex:1;min-height:0;background:#fff}.panel{width:100%;height:100%}.panel[hidden]{display:none}.panel iframe{width:100%;height:100%;border:0;display:block}.empty{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}.empty-inner{max-width:420px}.empty-icon{font-size:36px;margin-bottom:12px}.empty h2{font-size:20px;margin:0 0 12px}.empty p{font-size:14px;line-height:1.8;color:#73737e;margin:0}
+.desktop-file{position:absolute;right:clamp(16px,3vw,46px);bottom:clamp(18px,3vw,40px);width:92px;border:0;background:transparent;color:#292b37;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;z-index:2;padding:8px 3px;border-radius:12px}.desktop-file:hover,.desktop-file:focus-visible{background:#ffffff50}.file-art{width:62px;height:57px;filter:drop-shadow(0 5px 7px #28304a3b)}.file-label{font-size:12px;font-weight:650;text-align:center;text-shadow:0 1px 3px #fff}
+.dock{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);display:flex;gap:9px;padding:7px 12px;border:1px solid #ffffff90;border-radius:16px;background:#ffffff7b;backdrop-filter:blur(20px);box-shadow:0 8px 25px #26334a21;z-index:1}.dock-mark{width:29px;height:29px;border-radius:8px;background:linear-gradient(135deg,#ffffff,#c5cce0);display:grid;place-items:center;color:#696b88;font-size:16px}
+@media(max-width:650px){.desktop{padding:10px}.menu-bar{height:30px;padding:0 13px;font-size:11px}.window{width:calc(100% - 36px);height:calc(100% - 235px);min-height:220px;top:calc(50% - 30px);border-radius:12px}.window.maximized{width:calc(100% - 16px);height:calc(100% - 120px);top:calc(50% - 22px)}.toolbar{height:43px;grid-template-columns:72px minmax(0,1fr) 72px;padding:0 11px}.light{width:12px;height:12px}.lights{gap:7px}.tabs{padding:7px;gap:2px}.tab{font-size:12px;padding:9px 2px}.desktop-file{right:13px;bottom:46px;width:82px}.file-art{width:55px;height:51px}.dock{bottom:9px;left:43%;padding:6px 10px}.dock-mark{width:25px;height:25px}.window.minimized{bottom:130px;top:auto}}
+@media(max-height:550px){.window{height:calc(100% - 110px);top:calc(50% + 12px)}.desktop-file{bottom:10px;right:8px}.dock{display:none}}
+@media(prefers-reduced-motion:no-preference){.window{transition:width .2s,height .2s,top .2s}}
 </style>
 </head>
 <body>
 <main class="desktop">
-<section class="window" id="window" aria-label="利用規約ウィンドウ">
-<header class="toolbar">
-<div class="controls">
-<button class="red" id="close" aria-label="閉じる" title="閉じる"></button>
-<button class="yellow" id="minimize" aria-label="最小化" title="最小化"></button>
-<button class="green" id="maximize" aria-label="最大化切り替え" title="最大化切り替え"></button>
-</div>
-<div class="title">利用規約</div><div></div>
-</header>
-<div class="frame"><iframe src="https://yagisan-createstudio.github.io/terms_of_service/" title="利用規約本文" loading="eager"></iframe></div>
+<header class="menu-bar"><span class="menu-brand">Document Center</span><span class="clock" id="clock" aria-label="現在時刻"></span></header>
+<section class="window" id="window" aria-label="ドキュメントウィンドウ">
+ <div class="toolbar"><div class="lights"><button class="light red" id="close" type="button" title="閉じる" aria-label="閉じる"></button><button class="light yellow" id="minimize" type="button" title="最小化" aria-label="最小化"></button><button class="light green" id="maximize" type="button" title="最大化" aria-label="最大化を切り替え"></button></div><div class="window-title">Document Center</div><div></div></div>
+ <div class="tabs" role="tablist" aria-label="ドキュメントの種類">
+  <button class="tab" id="tab-terms" role="tab" aria-selected="true" aria-controls="panel-terms" tabindex="0" data-tab="terms">利用規約</button>
+  <button class="tab" id="tab-release" role="tab" aria-selected="false" aria-controls="panel-release" tabindex="-1" data-tab="release">リリースノート</button>
+  <button class="tab" id="tab-news" role="tab" aria-selected="false" aria-controls="panel-news" tabindex="-1" data-tab="news">お知らせ</button>
+ </div>
+ <div class="content">
+  <div class="panel" id="panel-terms" role="tabpanel" aria-labelledby="tab-terms"><iframe title="日次レポートビューアー・配信システム利用規約" src="https://yagisan-createstudio.github.io/terms_of_service/"></iframe></div>
+  <div class="panel" id="panel-release" role="tabpanel" aria-labelledby="tab-release" hidden><div class="empty"><div class="empty-inner"><div class="empty-icon" aria-hidden="true">📋</div><h2>リリースノート</h2><p>更新履歴を掲載するための準備中ページです。今後、バージョンごとの変更内容をこちらに表示します。</p></div></div></div>
+  <div class="panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news" hidden><div class="empty"><div class="empty-inner"><div class="empty-icon" aria-hidden="true">📢</div><h2>お知らせ</h2><p>システムに関するお知らせを掲載するための準備中ページです。</p></div></div></div>
+ </div>
 </section>
-<button class="launch" id="launch">利用規約を開く</button>
+<button class="desktop-file" id="open-file" type="button" aria-label="ドキュメントを開く" title="ドキュメントを開く">
+ <svg class="file-art" viewBox="0 0 70 65" aria-hidden="true"><defs><linearGradient id="folder" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#83c7ff"/><stop offset="1" stop-color="#3387d7"/></linearGradient></defs><path d="M6 13Q6 8 11 8H27L34 15H59Q64 15 64 20V54Q64 59 59 59H11Q6 59 6 54Z" fill="#2b75bf"/><path d="M6 24Q6 19 11 19H59Q64 19 64 24V54Q64 59 59 59H11Q6 59 6 54Z" fill="url(#folder)" stroke="#ffffffa0" stroke-width="1"/><path d="M13 30H57" stroke="#ffffff70" stroke-width="2" stroke-linecap="round"/></svg>
+ <span class="file-label">ドキュメント</span>
+</button>
+<div class="dock" aria-hidden="true"><div class="dock-mark">◈</div><div class="dock-mark">⌘</div><div class="dock-mark">⚙</div></div>
 </main>
 <script>
-const win=document.getElementById('window'),launch=document.getElementById('launch');
-document.getElementById('close').addEventListener('click',()=>{win.classList.add('closed');launch.classList.add('visible')});
-launch.addEventListener('click',()=>{win.classList.remove('closed','minimized');launch.classList.remove('visible')});
+const win=document.getElementById('window');const file=document.getElementById('open-file');
+file.addEventListener('click',()=>{win.hidden=false;win.classList.remove('minimized')});
+document.getElementById('close').addEventListener('click',()=>{win.hidden=true;win.classList.remove('minimized','maximized');file.focus()});
 document.getElementById('minimize').addEventListener('click',()=>win.classList.toggle('minimized'));
 document.getElementById('maximize').addEventListener('click',()=>{win.classList.remove('minimized');win.classList.toggle('maximized')});
+const tabs=[...document.querySelectorAll('.tab')];function activate(name,focus=false){tabs.forEach(tab=>{const active=tab.dataset.tab===name;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;document.getElementById('panel-'+tab.dataset.tab).hidden=!active;if(active&&focus)tab.focus()})}
+tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>activate(tab.dataset.tab));tab.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const n=(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;activate(tabs[n].dataset.tab,true)}})});
+const clock=document.getElementById('clock');function updateClock(){clock.textContent=new Intl.DateTimeFormat('ja-JP',{hour:'2-digit',minute:'2-digit'}).format(new Date())}updateClock();setInterval(updateClock,60000);
 </script>
-</body>
-</html>
+</body></html>
