@@ -18,6 +18,7 @@
 @media(max-width:760px){html{scroll-padding-top:20px}.container{padding:0 20px}.header{min-height:52px}.header-note{display:none}.hero{padding:24px 0}.hero h1{font-size:24px}.intro{font-size:13px;line-height:1.9}.layout{display:block;padding-top:30px}.sidebar{display:none}.release{padding-bottom:29px;margin-bottom:29px;scroll-margin-top:20px}.release h2{font-size:23px}.release-date{margin-bottom:22px}.change h3{font-size:14px}.change ul{font-size:14px;line-height:1.95}.mobile-open{display:flex;align-items:center;justify-content:center;gap:9px;position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);border:1px solid #ffffff30;border-radius:999px;background:var(--accent);color:#fff;padding:12px 22px;box-shadow:0 5px 20px #67354b30;font-size:14px;font-weight:600;white-space:nowrap;z-index:5}.mobile-open svg{width:17px;height:17px}.sheet[open]{display:flex;flex-direction:column;position:fixed;inset:auto 0 0;margin:0;width:100%;max-width:none;max-height:80vh;max-height:80dvh;border-radius:18px 18px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}.footer{padding-bottom:calc(105px + env(safe-area-inset-bottom,0px))}body.menu-open{overflow:hidden}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 @media print{.sidebar,.mobile-open,.sheet,.skip{display:none!important}.layout{display:block}.release{break-inside:avoid}.footer{padding-bottom:20px}}
+.sidebar{max-height:calc(100dvh - 56px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}.sheet-head{flex-shrink:0}.sheet nav{min-height:0}.historical-note{margin-top:16px;padding:14px 16px;border-left:2px solid #e7cad8;background:#fdf8fa;color:#68747c;font-size:12px}.historical-note p{margin:0 0 6px;font-weight:600;color:#735566}.historical-note blockquote{margin:0;line-height:1.9}.historical-note small{display:block;font-size:11px;margin-top:8px}
 </style>
 </head>
 <body>
@@ -30,7 +31,15 @@
 <li><a href="#v7-0"><span class="nav-version">v7.0</span><time datetime="2026-10-12">2026/10/12</time></a></li>
 <li><a href="#v6-1"><span class="nav-version">v6.1</span><time datetime="2026-08-17">2026/08/17</time></a></li>
 <li><a href="#v6-0"><span class="nav-version">v6.0</span><time datetime="2026-08-16">2026/08/16</time></a></li>
-<li><a href="#v5-0"><span class="nav-version">v5.0</span><time datetime="2026-08-13">2026/08/13</time></a></li></ol></nav><div id="updates"><article class="release" id="v7-1" aria-labelledby="title-v7-1"><div class="release-heading"><h2 id="title-v7-1">v7.1</h2><span class="badge">最新のアップデート</span></div><time class="release-date" datetime="2026-10-19">2026/10/19</time><section class="change"><h3>「続行」ボタンの配信制御を改善</h3><ul><li>ボタンの有効期限を配信当日限りに制限</li><li>配信済みレポートの重複配信を防止</li><li>過去に配信されたボタンからの再配信を防止</li></ul></section>
+<li><a href="#v5-0"><span class="nav-version">v5.0</span><time datetime="2026-08-13">2026/08/13</time></a></li><li><a href="#v4-0-2"><span class="nav-version">v4.0.2</span><time datetime="2026-08-09">2026/08/09</time></a></li>
+<li><a href="#v4-0-1"><span class="nav-version">v4.0.1</span><time datetime="2026-08-07">2026/08/07</time></a></li>
+<li><a href="#v4-0"><span class="nav-version">v4.0</span><time datetime="2026-08-04">2026/08/04</time></a></li>
+<li><a href="#v3-2-1"><span class="nav-version">v3.2.1</span><time datetime="2026-08-03">2026/08/03</time></a></li>
+<li><a href="#v3-2"><span class="nav-version">v3.2</span><time datetime="2026-07-27">2026/07/27</time></a></li>
+<li><a href="#v3-1"><span class="nav-version">v3.1</span><time datetime="2026-07-25">2026/07/25</time></a></li>
+<li><a href="#v3-0"><span class="nav-version">v3.0</span><time datetime="2026-07-25">2026/07/25</time></a></li>
+<li><a href="#v2-0"><span class="nav-version">v2.0</span><time datetime="2026-07-23">2026/07/23</time></a></li>
+<li><a href="#v1-0"><span class="nav-version">v1.0</span><time datetime="2026-06-16">2026/06/16</time></a></li></ol></nav><div id="updates"><article class="release" id="v7-1" aria-labelledby="title-v7-1"><div class="release-heading"><h2 id="title-v7-1">v7.1</h2><span class="badge">最新のアップデート</span></div><time class="release-date" datetime="2026-10-19">2026/10/19</time><section class="change"><h3>「続行」ボタンの配信制御を改善</h3><ul><li>ボタンの有効期限を配信当日限りに制限</li><li>配信済みレポートの重複配信を防止</li><li>過去に配信されたボタンからの再配信を防止</li></ul></section>
 <section class="change"><h3>レポートの配信対象管理を改善</h3><ul><li>営業日とレポートIDの紐付けを実装</li><li>異なる営業日のレポートが配信される問題を修正</li></ul></section>
 <section class="change"><h3>レポートの自動配信を再開</h3><ul><li>LINEの認証手続き完了に伴い、通常運用を再開</li></ul></section></article>
 <article class="release" id="v7-0-1" aria-labelledby="title-v7-0-1"><div class="release-heading"><h2 id="title-v7-0-1">v7.0.1</h2></div><time class="release-date" datetime="2026-10-14">2026/10/14</time><section class="change"><h3>サーバーの運用構成を拡張</h3><ul><li>従来の1軸構成から2軸構成へ変更</li><li>今後のサーバー追加に合わせて、運用構成を段階的に拡張予定</li></ul></section></article>
@@ -45,7 +54,19 @@
 <article class="release" id="v6-0" aria-labelledby="title-v6-0"><div class="release-heading"><h2 id="title-v6-0">v6.0</h2></div><time class="release-date" datetime="2026-08-16">2026/08/16</time><section class="change"><h3>あいさつメッセージの文言を変更</h3><ul><li>友だち追加後に送信されるあいさつメッセージに、初期登録手順と利用申請フォームを追加</li></ul></section>
 <section class="change"><h3>リッチメニューの仕様変更</h3><ul><li>利用申請の承認状況（承認済／未完了・未承認）に応じて、表示するリッチメニューを切り替えるよう変更</li></ul></section>
 <section class="change"><h3>配信速度の強化</h3><ul><li>日次レポートの共有におけるメッセージ配信処理を高速化</li></ul></section></article>
-<article class="release" id="v5-0" aria-labelledby="title-v5-0"><div class="release-heading"><h2 id="title-v5-0">v5.0</h2></div><time class="release-date" datetime="2026-08-13">2026/08/13</time><section class="change"><h3>管理者以外への個人配信機能を追加</h3><ul><li>事前に登録及び利用申請を行い、管理者に承認されたユーザー限定で個人配信に対応しました。</li></ul></section></article></div></div>
+<article class="release" id="v5-0" aria-labelledby="title-v5-0"><div class="release-heading"><h2 id="title-v5-0">v5.0</h2></div><time class="release-date" datetime="2026-08-13">2026/08/13</time><section class="change"><h3>管理者以外への個人配信機能を追加</h3><ul><li>事前に登録及び利用申請を行い、管理者に承認されたユーザー限定で個人配信に対応しました。</li></ul></section></article>
+<article class="release" id="v4-0-2" aria-labelledby="title-v4-0-2"><div class="release-heading"><h2 id="title-v4-0-2">v4.0.2</h2></div><time class="release-date" datetime="2026-08-09">2026/08/09</time><section class="change"><h3>未完了フラグの自動リセット機能を追加</h3><ul><li>システム外で第三者が直接レポートを共有した場合に未完了フラグが保持される仕様を消去しました。</li><li>手動共有や例外的な共有が発生した場合でも、翌日の配信・共有処理に影響が出ないよう改善しました。</li></ul></section></article>
+<article class="release" id="v4-0-1" aria-labelledby="title-v4-0-1"><div class="release-heading"><h2 id="title-v4-0-1">v4.0.1</h2></div><time class="release-date" datetime="2026-08-07">2026/08/07</time><section class="change"><h3>iOS版LINE（Ver.26.12〜）での表示崩れ修正</h3><ul><li>iOS版LINEのアップデート（Ver.26.12以降）に伴い、レポートカードのテキストや注記部分が一部見切れてしまう不具合に対応しました。</li><li>カード描画レイアウトを調整し、正常に表示されるよう修正しました。</li></ul></section></article>
+<article class="release" id="v4-0" aria-labelledby="title-v4-0"><div class="release-heading"><h2 id="title-v4-0">v4.0</h2></div><time class="release-date" datetime="2026-08-04">2026/08/04</time><section class="change"><h3>日次レポート共有時のコメント機能を追加</h3><ul><li>日次レポートを共有する際に、任意のコメントを付与して配信できる機能を追加しました。</li></ul></section></article>
+<article class="release" id="v3-2-1" aria-labelledby="title-v3-2-1"><div class="release-heading"><h2 id="title-v3-2-1">v3.2.1</h2></div><time class="release-date" datetime="2026-08-03">2026/08/03</time><section class="change"><h3>不適切なコメント検知時のUI表示不具合を修正</h3><ul><li>不適切なコメント検知後の処理完了時、実行者以外の画面に「続行」ボタンが残ってしまう問題を解消しました。</li></ul><aside class="historical-note"><p>当時のご案内</p><blockquote>現在も画面上に表示されている場合は、お手数ですが「続行」をタップして表示を消去していただくようお願いします</blockquote><small>※リリース当時の案内です。現在の操作をお願いするものではありません。</small></aside></section></article>
+<article class="release" id="v3-2" aria-labelledby="title-v3-2"><div class="release-heading"><h2 id="title-v3-2">v3.2</h2></div><time class="release-date" datetime="2026-07-27">2026/07/27</time><section class="change"><h3>不適切なコメントの検知機能を追加</h3><ul><li>事前に設定したキーワードがコメントに含まれている場合、スコアのみの配信へ切り替える機能を追加</li></ul></section></article>
+<article class="release" id="v3-1" aria-labelledby="title-v3-1"><div class="release-heading"><h2 id="title-v3-1">v3.1</h2></div><time class="release-date" datetime="2026-07-25">2026/07/25</time><section class="change"><h3>自動配信機能の停止</h3><ul><li>LYPプレミアムの予約送信機能導入と利用サービスの終了に伴い、自動配信を一時停止</li></ul></section>
+<section class="change"><h3>特定ワード受信時の応答設定</h3><ul><li>「今日・日次・本日」で日次NPSレポートを配信</li><li>「先週・前週・週次」で週次NPSレポートを配信</li><li>「先月・前月・月次」で月次NPSレポートを配信</li></ul></section>
+<section class="change"><h3>絞り込み配信機能のアップデート</h3><ul><li>管理者が許可したLINEグループ内では、誰が特定ワードを送信しても配信される仕様へ変更</li></ul></section></article>
+<article class="release" id="v3-0" aria-labelledby="title-v3-0"><div class="release-heading"><h2 id="title-v3-0">v3.0</h2></div><time class="release-date" datetime="2026-07-25">2026/07/25</time><section class="change"><h3>週次レポートの自動配信機能を追加</h3><ul><li>配信時間：毎週月曜日13:25〜13:35</li></ul></section>
+<section class="change"><h3>レポートのハイライトカラーを個別に設定</h3><ul><li>日次レポートと週次レポートのハイライトカラーを個別に設定しました。</li><li>色分けによりレポートの種類を視覚的に見分けやすくなりました。</li></ul></section></article>
+<article class="release" id="v2-0" aria-labelledby="title-v2-0"><div class="release-heading"><h2 id="title-v2-0">v2.0</h2></div><time class="release-date" datetime="2026-07-23">2026/07/23</time><section class="change"><h3>絞り込み配信に対応</h3><ul><li>グループIDおよびユーザーIDによる配信先の絞り込みが可能になりました。</li><li>管理者が設定したユーザーのみに配信されるためセキュリティが向上します。</li></ul></section></article>
+<article class="release" id="v1-0" aria-labelledby="title-v1-0"><div class="release-heading"><h2 id="title-v1-0">v1.0</h2></div><time class="release-date" datetime="2026-06-16">2026/06/16</time><section class="change"><h3>日次レポートの自動配信機能を追加</h3><ul><li>配信時間：22:05〜22:15（定時配信）</li></ul></section></article></div></div>
 </main>
 <footer class="footer"><div class="container"><p>日次レポートビューアー・配信システム</p><a href="https://yagisan-createstudio.github.io/terms_of_service/">利用規約</a><p><small>© store_code4162@Domo</small></p></div></footer>
 <button class="mobile-open" id="open-menu" type="button" aria-haspopup="dialog" aria-controls="version-menu" aria-expanded="false"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 5h10M7 10h10M7 15h10M2 5h1M2 10h1M2 15h1"/></svg>バージョン一覧</button>
@@ -54,7 +75,15 @@
 <li><a href="#v7-0"><span class="nav-version">v7.0</span><time datetime="2026-10-12">2026/10/12</time></a></li>
 <li><a href="#v6-1"><span class="nav-version">v6.1</span><time datetime="2026-08-17">2026/08/17</time></a></li>
 <li><a href="#v6-0"><span class="nav-version">v6.0</span><time datetime="2026-08-16">2026/08/16</time></a></li>
-<li><a href="#v5-0"><span class="nav-version">v5.0</span><time datetime="2026-08-13">2026/08/13</time></a></li></ol></nav></dialog>
+<li><a href="#v5-0"><span class="nav-version">v5.0</span><time datetime="2026-08-13">2026/08/13</time></a></li><li><a href="#v4-0-2"><span class="nav-version">v4.0.2</span><time datetime="2026-08-09">2026/08/09</time></a></li>
+<li><a href="#v4-0-1"><span class="nav-version">v4.0.1</span><time datetime="2026-08-07">2026/08/07</time></a></li>
+<li><a href="#v4-0"><span class="nav-version">v4.0</span><time datetime="2026-08-04">2026/08/04</time></a></li>
+<li><a href="#v3-2-1"><span class="nav-version">v3.2.1</span><time datetime="2026-08-03">2026/08/03</time></a></li>
+<li><a href="#v3-2"><span class="nav-version">v3.2</span><time datetime="2026-07-27">2026/07/27</time></a></li>
+<li><a href="#v3-1"><span class="nav-version">v3.1</span><time datetime="2026-07-25">2026/07/25</time></a></li>
+<li><a href="#v3-0"><span class="nav-version">v3.0</span><time datetime="2026-07-25">2026/07/25</time></a></li>
+<li><a href="#v2-0"><span class="nav-version">v2.0</span><time datetime="2026-07-23">2026/07/23</time></a></li>
+<li><a href="#v1-0"><span class="nav-version">v1.0</span><time datetime="2026-06-16">2026/06/16</time></a></li></ol></nav></dialog>
 <script>
 'use strict';
 const menu=document.getElementById('version-menu');
@@ -70,7 +99,7 @@ let pending=false;
 function updateActive(){let current=sections[0];for(const section of sections){if(section.getBoundingClientRect().top<=110)current=section;}if(Math.ceil(window.scrollY+window.innerHeight)>=document.documentElement.scrollHeight-2)current=sections[sections.length-1];for(const link of links){if(link.hash==='#'+current.id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');}pending=false;}
 window.addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(updateActive);}},{passive:true});
 window.addEventListener('resize',()=>{if(window.innerWidth>760)closeMenu();updateActive();});
-links.forEach(link=>link.addEventListener('click',()=>{if(menu.open)closeMenu();}));
+links.forEach(link=>link.addEventListener('click',e=>{const target=document.getElementById(link.hash.slice(1));if(!target)return;e.preventDefault();if(menu.open)closeMenu();requestAnimationFrame(()=>{history.pushState(null,'',link.hash);target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});});}));
 window.addEventListener('hashchange',()=>requestAnimationFrame(updateActive));
 updateActive();
 </script>
