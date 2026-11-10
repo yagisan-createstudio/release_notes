@@ -1,123 +1,32 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#ffffff">
-<meta name="description" content="日次レポートビューアー・配信システムのアップデート情報。機能の追加・改善と不具合修正の履歴をご確認いただけます。">
-<title>アップデート｜日次レポートビューアー・配信システム</title>
-<style>
-:root{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;color:#252a30;background:#fff;--accent:#a33d70;--soft:#fcf0f5;--line:#e8ebed;--muted:#68747c}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:26px}body{margin:0;line-height:1.85}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}a{color:inherit}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}button{cursor:pointer}.skip{position:absolute;top:8px;left:16px;transform:translateY(-200%);background:#fff;padding:8px 16px;z-index:10}.skip:focus{transform:none}
-.header{min-height:54px;border-bottom:1px solid var(--line);display:flex;align-items:center;font-size:14px;font-weight:700}.container{width:100%;max-width:1040px;margin:0 auto;padding:0 24px}.header .container{display:flex;align-items:center;justify-content:space-between;gap:16px}.header-note{font-size:11px;font-weight:400;color:var(--muted)}
-.hero{padding:29px 0 27px;border-bottom:1px solid var(--line)}.eyebrow{margin:0 0 8px;font-size:12px;color:var(--muted)}.hero h1{font-size:clamp(23px,3vw,30px);line-height:1.5;letter-spacing:-.025em;margin:0 0 10px}.intro{font-size:17px;font-weight:650;line-height:1.5;color:#252a30;margin:0 0 9px}.latest-summary{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:17px 0 0;font-size:12px;color:var(--muted)}.badge{display:inline-flex;align-items:center;white-space:nowrap;background:var(--soft);color:var(--accent);padding:3px 9px;border:1px solid #f0d7e3;border-radius:5px;font-size:11px;font-weight:600;line-height:1.6}
-.layout{display:grid;grid-template-columns:228px minmax(0,1fr);gap:64px;padding-top:39px}.sidebar{position:sticky;top:28px;align-self:start}.navtitle{font-size:12px;color:var(--muted);font-weight:700;margin:0 0 13px}.navlist{list-style:none;margin:0;padding:0;border-left:1px solid #e1e5e7}.navlist a{display:block;padding:11px 15px;text-decoration:none;color:#56626a;border-left:2px solid transparent;margin-left:-1px;transition:background .15s}.navlist a:hover{background:#f8f9fa}.navlist a[aria-current]{border-left-color:var(--accent);background:var(--soft);color:var(--accent)}.nav-version{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;line-height:1.6}.navlist time{display:block;font-size:11px;margin-top:3px;color:var(--muted);font-variant-numeric:tabular-nums}.mini-label{font-size:10px;font-weight:500;color:var(--accent)}
-.release{padding-bottom:35px;margin-bottom:36px;border-bottom:1px solid var(--line);scroll-margin-top:26px}.release-heading{display:flex;align-items:center;gap:13px;flex-wrap:wrap}.release h2{font-size:25px;letter-spacing:-.02em;line-height:1.5;margin:0}.release-date{display:block;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums;margin:4px 0 26px}.change{margin:0 0 23px}.change:last-child{margin-bottom:0}.change h3{font-size:15px;line-height:1.8;margin:0 0 8px;font-weight:650;overflow-wrap:anywhere}.change ul{padding-left:1.3em;margin:0;color:#4d5861;font-size:14px;line-height:1.95}.change li{padding-left:2px;margin-top:5px;overflow-wrap:anywhere}.change li::marker{color:#a5adb4;font-size:.75em}.release:last-child{margin-bottom:0;border-bottom:0}
-.footer{border-top:1px solid var(--line);padding:26px 0 36px;color:var(--muted);font-size:12px;text-align:center}.footer p{margin:0 0 5px}.footer small{color:#87919a;font-size:11px}.footer a{display:inline-block;margin:8px 0 12px;color:#59656e;text-underline-offset:4px}
-.mobile-open{display:none}.sheet{padding:0;border:1px solid var(--line);color:#252a30;background:#fff;box-shadow:0 -8px 40px #1112}.sheet::backdrop{background:#15202b80}.sheet-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}.sheet-head h2{font-size:16px;margin:0}.close{display:grid;place-items:center;width:36px;height:36px;border:0;border-radius:50%;background:#f1f3f4;color:#45525a;font-size:24px;line-height:1}.sheet nav{overflow:auto;overscroll-behavior:contain;padding:8px 20px 20px}.sheet .navlist{border:0}.sheet .navlist a{margin:0;border-left:0;border-bottom:1px solid #eef0f1;padding:11px 12px;border-radius:6px}.sheet .navlist a[aria-current]{border-bottom-color:transparent}.sheet .navlist a{display:flex;justify-content:space-between;align-items:center;gap:12px}.sheet .navlist time{margin:0}
-@media(max-width:760px){html{scroll-padding-top:20px}.container{padding:0 20px}.header{min-height:52px}.header-note{display:none}.hero{padding:24px 0}.hero h1{font-size:24px}.intro{font-size:16px}.layout{display:block;padding-top:30px}.sidebar{display:none}.release{padding-bottom:29px;margin-bottom:29px;scroll-margin-top:20px}.release h2{font-size:23px}.release-date{margin-bottom:22px}.change h3{font-size:14px}.change ul{font-size:14px;line-height:1.95}.mobile-open{display:flex;align-items:center;justify-content:center;gap:9px;position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);border:1px solid #ffffff30;border-radius:999px;background:var(--accent);color:#fff;padding:12px 22px;box-shadow:0 5px 20px #67354b30;font-size:14px;font-weight:600;white-space:nowrap;z-index:5}.mobile-open svg{width:17px;height:17px}.sheet[open]{display:flex;flex-direction:column;position:fixed;inset:auto 0 0;margin:0;width:100%;max-width:none;max-height:80vh;max-height:80dvh;border-radius:18px 18px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}.footer{padding-bottom:calc(105px + env(safe-area-inset-bottom,0px))}body.menu-open{overflow:hidden}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-@media print{.sidebar,.mobile-open,.sheet,.skip{display:none!important}.layout{display:block}.release{break-inside:avoid}.footer{padding-bottom:20px}}
-.sidebar{max-height:calc(100dvh - 56px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}.sheet-head{flex-shrink:0}.sheet nav{min-height:0}.historical-note{margin-top:16px;padding:14px 16px;border-left:2px solid #e7cad8;background:#fdf8fa;color:#68747c;font-size:12px}.historical-note p{margin:0 0 6px;font-weight:600;color:#735566}.historical-note blockquote{margin:0;line-height:1.9}.historical-note small{display:block;font-size:11px;margin-top:8px}
-/* Information notice displayed before the terms, without changing the terms themselves. */
-.security-notice{margin:24px 0 0;padding:18px 20px;border:1px solid #f0d7e3;border-left:3px solid var(--accent);border-radius:10px;background:var(--soft)}.security-notice h2{margin:0 0 8px;font-size:15px;line-height:1.6;color:var(--accent)}.security-notice p{margin:0;font-size:13px;line-height:1.9;color:#45525a}@media(max-width:760px){.security-notice{margin-top:20px;padding:16px}.security-notice h2{font-size:14px}.security-notice p{font-size:13px}}
-
-.release-note{margin:16px 0 0;color:var(--muted);font-size:12px;line-height:1.9;overflow-wrap:anywhere}
-.latest-with-star{display:inline-flex;align-items:center;gap:10px;flex:none}.release-star{display:block;width:44px;height:52px;flex:none}.upcoming-note{margin-top:20px;line-height:1.9}
-.release-star-body{transform-origin:115px 127px;animation:releaseStarBow 4.6s ease-in-out infinite}
-@keyframes releaseStarBow{0%,15%,85%,100%{transform:translateY(0) scale(1)}35%,60%{transform:translateY(13px) scale(1.1,.72)}}
-@media(prefers-reduced-motion:reduce){.release-star-body{animation:none}}
-.release-phrase{display:inline-block;max-width:100%;vertical-align:top}.release-ref{font-size:.72em;line-height:0;vertical-align:super;margin-left:.08em}.release-footnotes{margin-top:20px;color:var(--muted);font-size:12px;line-height:1.9}.release-footnotes p{display:flex;align-items:baseline;gap:7px;margin:0 0 10px}.release-footnotes p:last-child{margin-bottom:0}.release-footnotes p>sup{flex:none}.release-footnotes p>span{min-width:0}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>メンテナンス中｜リリースノート</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: #fff; color: #333; }
+    .maintenance-simple { width: calc(100% - 48px); max-width: 600px; margin: 15vh auto 0; text-align: center; padding-bottom: 40px; }
+    .maintenance-code { font-family: Arial, sans-serif; font-size: 100px; font-weight: 700; line-height: 1.1; }
+    h1 { font-family: Arial, sans-serif; font-size: 24px; line-height: 1.5; margin: 14px 0 32px; font-weight: 400; }
+    p { font-size: 13px; line-height: 2; color: #666; }
+    hr { border: 0; border-top: 1px solid #ddd; margin: 32px 0 20px; }
+    small { font-size: 11px; color: #999; }
+    .terms { margin-top: 12px; }
+    .terms a { font-size: 12px; color: #777; text-decoration: underline; text-underline-offset: 3px; }
+  </style>
 </head>
 <body>
-<a class="skip" href="#updates">本文へ移動</a>
-<header class="header"><div class="container"><h1 style="font:inherit;margin:0">アップデート</h1><span class="header-note">日次レポートビューアー・配信システム</span></div></header>
-<main class="container">
-<section class="hero" aria-label="更新のご案内"><p class="intro">より快適にご利用いただくために</p><p class="latest-summary"><span>更新日：2026/10/27</span><span>最新バージョン：v8.1</span></p></section>
-<section class="security-notice" aria-labelledby="security-notice-title"><h2 id="security-notice-title">PHPの脆弱性による影響について</h2><p>本配信システムおよびビューアーサイトではPHPを使用しておらず、今回公表された脆弱性の影響を受けません。PHPの脆弱性に関して、利用者の皆さまに設定変更などを行っていただく必要はありません。これまでどおりご利用いただけます。</p></section>
-<div class="layout"><nav class="sidebar" aria-label="バージョン一覧"><p class="navtitle">バージョン一覧</p><ol class="navlist"><li><a href="#v8-1" aria-current="location"><span class="nav-version">v8.1<span class="mini-label">最新</span></span><time datetime="2026-10-27">2026/10/27</time></a></li><li><a href="#v8-0"><span class="nav-version">v8.0</span><time datetime="2026-10-24">2026/10/24</time></a></li>
-<li><a href="#v7-1"><span class="nav-version">v7.1</span><time datetime="2026-10-19">2026/10/19</time></a></li>
-<li><a href="#v7-0-1"><span class="nav-version">v7.0.1</span><time datetime="2026-10-14">2026/10/14</time></a></li>
-<li><a href="#v7-0"><span class="nav-version">v7.0</span><time datetime="2026-10-12">2026/10/12</time></a></li>
-<li><a href="#v6-1"><span class="nav-version">v6.1</span><time datetime="2026-08-17">2026/08/17</time></a></li>
-<li><a href="#v6-0"><span class="nav-version">v6.0</span><time datetime="2026-08-16">2026/08/16</time></a></li>
-<li><a href="#v5-0"><span class="nav-version">v5.0</span><time datetime="2026-08-13">2026/08/13</time></a></li><li><a href="#v4-0-2"><span class="nav-version">v4.0.2</span><time datetime="2026-08-09">2026/08/09</time></a></li>
-<li><a href="#v4-0-1"><span class="nav-version">v4.0.1</span><time datetime="2026-08-07">2026/08/07</time></a></li>
-<li><a href="#v4-0"><span class="nav-version">v4.0</span><time datetime="2026-08-04">2026/08/04</time></a></li>
-<li><a href="#v3-2-1"><span class="nav-version">v3.2.1</span><time datetime="2026-08-03">2026/08/03</time></a></li>
-<li><a href="#v3-2"><span class="nav-version">v3.2</span><time datetime="2026-07-27">2026/07/27</time></a></li>
-<li><a href="#v3-1"><span class="nav-version">v3.1</span><time datetime="2026-07-25">2026/07/25</time></a></li>
-<li><a href="#v3-0"><span class="nav-version">v3.0</span><time datetime="2026-07-25">2026/07/25</time></a></li>
-<li><a href="#v2-0"><span class="nav-version">v2.0</span><time datetime="2026-07-23">2026/07/23</time></a></li>
-<li><a href="#v1-0"><span class="nav-version">v1.0</span><time datetime="2026-06-16">2026/06/16</time></a></li></ol></nav><div id="updates"><article class="release" id="v8-1" aria-labelledby="title-v8-1"><div class="release-heading"><h2 id="title-v8-1">v8.1</h2><span class="badge">最新のアップデート</span></div><time class="release-date" datetime="2026-10-27">2026/10/27</time>
-<section class="change"><h3>レポートの公開管理機能を追加</h3><ul><li><span class="release-phrase">管理者権限を持つユーザー<sup class="release-ref" aria-label="注記1">1</sup>が、</span><wbr><span class="release-phrase">ランチ／ディナーを指定して</span><wbr><span class="release-phrase">公開を停止できる機能を追加</span></li><li><span class="release-phrase">公開停止後は、</span><wbr><span class="release-phrase">差し替え中<sup class="release-ref" aria-label="注記2">2</sup>の案内PDFを表示</span></li></ul></section>
-<section class="change"><h3>スコア版レポートへの差し替えに対応</h3><ul><li><span class="release-phrase">公開停止実行後に、</span><wbr><span class="release-phrase">スコアのみを掲載したPDFを自動作成</span></li><li><span class="release-phrase">作成に失敗した場合の自動再試行と、</span><wbr><span class="release-phrase">管理者権限を持つユーザーによる</span><wbr><span class="release-phrase">手動再試行に対応</span></li></ul></section>
-<div class="release-footnotes" aria-label="注記"><p><sup class="release-ref">1</sup><span><span class="release-phrase">管理者権限は、</span><wbr><span class="release-phrase">おせっかいマスターおよび</span><wbr><span class="release-phrase">リーダー・社員の方に</span><wbr><span class="release-phrase">付与されています。</span></span></p><p><sup class="release-ref">2</sup><span><span class="release-phrase">LINE配信時は、AIが</span><wbr><span class="release-phrase">通常のレポートと</span><wbr><span class="release-phrase">スコアのみのレポートの</span><wbr><span class="release-phrase">どちらを配信するか判断しています。</span><br><span class="release-phrase">現在は学習中のため、</span><wbr><span class="release-phrase">誤って通常のレポートが</span><wbr><span class="release-phrase">配信される場合に備え、</span><wbr><span class="release-phrase">管理者権限を持つユーザーが</span><wbr><span class="release-phrase">公開を停止し、</span><wbr><span class="release-phrase">差し替えられるようにしました。</span></span></p></div></article><article class="release" id="v8-0" aria-labelledby="title-v8-0"><div class="release-heading"><h2 id="title-v8-0">v8.0</h2></div><time class="release-date" datetime="2026-10-24">2026/10/24</time><section class="change"><h3>レポート読み込み中の表示デザインを刷新</h3><ul><li>星型キャラクターのアニメーションを導入</li><li>時間帯に応じて表示が変化する仕組みを追加</li></ul></section><p class="release-note">※アニメーションの導入によるレポートの表示速度の低下はありません。</p><aside class="historical-note upcoming-note" aria-labelledby="upcoming-title"><p id="upcoming-title">今後のアップデート予定</p><div>レポートのスコアに応じてキャラクターの表情が変化する機能を、2027年春にリリース予定です。</div></aside></article>
-<article class="release" id="v7-1" aria-labelledby="title-v7-1"><div class="release-heading"><h2 id="title-v7-1">v7.1</h2></div><time class="release-date" datetime="2026-10-19">2026/10/19</time><section class="change"><h3>「続行」ボタンの配信制御を改善</h3><ul><li>ボタンの有効期限を配信当日限りに制限</li><li>配信済みレポートの重複配信を防止</li><li>過去に配信されたボタンからの再配信を防止</li></ul></section>
-<section class="change"><h3>レポートの配信対象管理を改善</h3><ul><li>営業日とレポートIDの紐付けを実装</li><li>異なる営業日のレポートが配信される問題を修正</li></ul></section>
-<section class="change"><h3>レポートの自動配信を再開</h3><ul><li>LINEの認証手続き完了に伴い、通常運用を再開</li></ul></section></article>
-<article class="release" id="v7-0-1" aria-labelledby="title-v7-0-1"><div class="release-heading"><h2 id="title-v7-0-1">v7.0.1</h2></div><time class="release-date" datetime="2026-10-14">2026/10/14</time><section class="change"><h3>サーバーの運用構成を拡張</h3><ul><li>従来の1軸構成から2軸構成へ変更</li><li>今後のサーバー追加に合わせて、運用構成を段階的に拡張予定</li></ul></section></article>
-<article class="release" id="v7-0" aria-labelledby="title-v7-0"><div class="release-heading"><h2 id="title-v7-0">v7.0</h2></div><time class="release-date" datetime="2026-10-12">2026/10/12</time><section class="change"><h3>サーバーの運用構成を変更</h3><ul><li>従来の5軸構成から1軸構成へ変更</li><li>今後のサーバー追加に合わせて、運用構成を段階的に拡張予定</li></ul></section>
-<section class="change"><h3>ログインセッションの管理仕様を変更</h3><ul><li>セキュリティ強化のため、ログイン状態の有効（継続）期間を従来の3650日間から7日間に変更</li><li>有効期限が切れたセッションを定期的に削除する機能を追加</li></ul></section>
-<section class="change"><h3>LINEログイン機能を改善</h3><ul><li>LINEアカウントと連携済みの場合、ログイン状態を自動的に復元するよう変更</li><li>既存の有効なセッションを再利用し、不要なセッションの生成を抑制</li></ul></section>
-<section class="change"><h3>レポート閲覧時のエラー処理を改善</h3><ul><li>レポートの表示に失敗した場合、エラー画面から再試行できるよう改善</li><li>再試行ボタンが正常に操作できない問題を修正</li></ul></section>
-<section class="change"><h3>ビューアーの表示デザインを統一</h3><ul><li>エラー画面の文言やボタンデザインを変更</li></ul></section></article>
-<article class="release" id="v6-1" aria-labelledby="title-v6-1"><div class="release-heading"><h2 id="title-v6-1">v6.1</h2></div><time class="release-date" datetime="2026-08-17">2026/08/17</time><section class="change"><h3>利用申請の承認通知フローを変更</h3><ul><li>利用申請の承認メール受信後に、#403 Errorが発生してレポートを受信できない問題を解消</li></ul></section>
-<section class="change"><h3>日次レポート配信時のコメント機能のバグを修正</h3><ul><li>日次レポート配信時に、直近のアップデート概要が誤って配信されてしまう不具合を解消</li></ul></section>
-<section class="change"><h3>個人利用向けに表示されるボタンを変更</h3><ul><li>日次レポート、アーカイブ閲覧の2種に表示するボタンを変更</li></ul></section></article>
-<article class="release" id="v6-0" aria-labelledby="title-v6-0"><div class="release-heading"><h2 id="title-v6-0">v6.0</h2></div><time class="release-date" datetime="2026-08-16">2026/08/16</time><section class="change"><h3>あいさつメッセージの文言を変更</h3><ul><li>友だち追加後に送信されるあいさつメッセージに、初期登録手順と利用申請フォームを追加</li></ul></section>
-<section class="change"><h3>リッチメニューの仕様変更</h3><ul><li>利用申請の承認状況（承認済／未完了・未承認）に応じて、表示するリッチメニューを切り替えるよう変更</li></ul></section>
-<section class="change"><h3>配信速度の強化</h3><ul><li>日次レポートの共有におけるメッセージ配信処理を高速化</li></ul></section></article>
-<article class="release" id="v5-0" aria-labelledby="title-v5-0"><div class="release-heading"><h2 id="title-v5-0">v5.0</h2></div><time class="release-date" datetime="2026-08-13">2026/08/13</time><section class="change"><h3>管理者以外への個人配信機能を追加</h3><ul><li>事前に登録及び利用申請を行い、管理者に承認されたユーザー限定で個人配信に対応しました。</li></ul></section></article>
-<article class="release" id="v4-0-2" aria-labelledby="title-v4-0-2"><div class="release-heading"><h2 id="title-v4-0-2">v4.0.2</h2></div><time class="release-date" datetime="2026-08-09">2026/08/09</time><section class="change"><h3>未完了フラグの自動リセット機能を追加</h3><ul><li>システム外で第三者が直接レポートを共有した場合に未完了フラグが保持される仕様を消去しました。</li><li>手動共有や例外的な共有が発生した場合でも、翌日の配信・共有処理に影響が出ないよう改善しました。</li></ul></section></article>
-<article class="release" id="v4-0-1" aria-labelledby="title-v4-0-1"><div class="release-heading"><h2 id="title-v4-0-1">v4.0.1</h2></div><time class="release-date" datetime="2026-08-07">2026/08/07</time><section class="change"><h3>iOS版LINE（Ver.26.12〜）での表示崩れ修正</h3><ul><li>iOS版LINEのアップデート（Ver.26.12以降）に伴い、レポートカードのテキストや注記部分が一部見切れてしまう不具合に対応しました。</li><li>カード描画レイアウトを調整し、正常に表示されるよう修正しました。</li></ul></section></article>
-<article class="release" id="v4-0" aria-labelledby="title-v4-0"><div class="release-heading"><h2 id="title-v4-0">v4.0</h2></div><time class="release-date" datetime="2026-08-04">2026/08/04</time><section class="change"><h3>日次レポート共有時のコメント機能を追加</h3><ul><li>日次レポートを共有する際に、任意のコメントを付与して配信できる機能を追加しました。</li></ul></section></article>
-<article class="release" id="v3-2-1" aria-labelledby="title-v3-2-1"><div class="release-heading"><h2 id="title-v3-2-1">v3.2.1</h2></div><time class="release-date" datetime="2026-08-03">2026/08/03</time><section class="change"><h3>不適切なコメント検知時のUI表示不具合を修正</h3><ul><li>不適切なコメント検知後の処理完了時、実行者以外の画面に「続行」ボタンが残ってしまう問題を解消しました。</li></ul><aside class="historical-note"><p>当時のご案内</p><blockquote>現在も画面上に表示されている場合は、お手数ですが「続行」をタップして表示を消去していただくようお願いします</blockquote><small>※リリース当時の案内です。現在の操作をお願いするものではありません。</small></aside></section></article>
-<article class="release" id="v3-2" aria-labelledby="title-v3-2"><div class="release-heading"><h2 id="title-v3-2">v3.2</h2></div><time class="release-date" datetime="2026-07-27">2026/07/27</time><section class="change"><h3>不適切なコメントの検知機能を追加</h3><ul><li>事前に設定したキーワードがコメントに含まれている場合、スコアのみの配信へ切り替える機能を追加</li></ul></section></article>
-<article class="release" id="v3-1" aria-labelledby="title-v3-1"><div class="release-heading"><h2 id="title-v3-1">v3.1</h2></div><time class="release-date" datetime="2026-07-25">2026/07/25</time><section class="change"><h3>自動配信機能の停止</h3><ul><li>LYPプレミアムの予約送信機能導入と利用サービスの終了に伴い、自動配信を一時停止</li></ul></section>
-<section class="change"><h3>特定ワード受信時の応答設定</h3><ul><li>「今日・日次・本日」で日次NPSレポートを配信</li><li>「先週・前週・週次」で週次NPSレポートを配信</li><li>「先月・前月・月次」で月次NPSレポートを配信</li></ul></section>
-<section class="change"><h3>絞り込み配信機能のアップデート</h3><ul><li>管理者が許可したLINEグループ内では、誰が特定ワードを送信しても配信される仕様へ変更</li></ul></section></article>
-<article class="release" id="v3-0" aria-labelledby="title-v3-0"><div class="release-heading"><h2 id="title-v3-0">v3.0</h2></div><time class="release-date" datetime="2026-07-25">2026/07/25</time><section class="change"><h3>週次レポートの自動配信機能を追加</h3><ul><li>配信時間：毎週月曜日13:25〜13:35</li></ul></section>
-<section class="change"><h3>レポートのハイライトカラーを個別に設定</h3><ul><li>日次レポートと週次レポートのハイライトカラーを個別に設定しました。</li><li>色分けによりレポートの種類を視覚的に見分けやすくなりました。</li></ul></section></article>
-<article class="release" id="v2-0" aria-labelledby="title-v2-0"><div class="release-heading"><h2 id="title-v2-0">v2.0</h2></div><time class="release-date" datetime="2026-07-23">2026/07/23</time><section class="change"><h3>絞り込み配信に対応</h3><ul><li>グループIDおよびユーザーIDによる配信先の絞り込みが可能になりました。</li><li>管理者が設定したユーザーのみに配信されるためセキュリティが向上します。</li></ul></section></article>
-<article class="release" id="v1-0" aria-labelledby="title-v1-0"><div class="release-heading"><h2 id="title-v1-0">v1.0</h2></div><time class="release-date" datetime="2026-06-16">2026/06/16</time><section class="change"><h3>日次レポートの自動配信機能を追加</h3><ul><li>配信時間：22:05〜22:15（定時配信）</li></ul></section></article></div></div>
-</main>
-<footer class="footer"><div class="container"><p>日次レポートビューアー・配信システム</p><a href="https://yagisan-createstudio.github.io/terms_of_service/">利用規約</a><p><small>© store_code4162@Domo</small></p></div></footer>
-<button class="mobile-open" id="open-menu" type="button" aria-haspopup="dialog" aria-controls="version-menu" aria-expanded="false"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 5h10M7 10h10M7 15h10M2 5h1M2 10h1M2 15h1"/></svg>バージョン一覧</button>
-<dialog class="sheet" id="version-menu" aria-labelledby="menu-title"><div class="sheet-head"><h2 id="menu-title">バージョン一覧</h2><button class="close" id="close-menu" type="button" aria-label="閉じる">×</button></div><nav aria-label="移動先のバージョン"><ol class="navlist"><li><a href="#v8-1" aria-current="location"><span class="nav-version">v8.1<span class="mini-label">最新</span></span><time datetime="2026-10-27">2026/10/27</time></a></li><li><a href="#v8-0"><span class="nav-version">v8.0</span><time datetime="2026-10-24">2026/10/24</time></a></li>
-<li><a href="#v7-1"><span class="nav-version">v7.1</span><time datetime="2026-10-19">2026/10/19</time></a></li>
-<li><a href="#v7-0-1"><span class="nav-version">v7.0.1</span><time datetime="2026-10-14">2026/10/14</time></a></li>
-<li><a href="#v7-0"><span class="nav-version">v7.0</span><time datetime="2026-10-12">2026/10/12</time></a></li>
-<li><a href="#v6-1"><span class="nav-version">v6.1</span><time datetime="2026-08-17">2026/08/17</time></a></li>
-<li><a href="#v6-0"><span class="nav-version">v6.0</span><time datetime="2026-08-16">2026/08/16</time></a></li>
-<li><a href="#v5-0"><span class="nav-version">v5.0</span><time datetime="2026-08-13">2026/08/13</time></a></li><li><a href="#v4-0-2"><span class="nav-version">v4.0.2</span><time datetime="2026-08-09">2026/08/09</time></a></li>
-<li><a href="#v4-0-1"><span class="nav-version">v4.0.1</span><time datetime="2026-08-07">2026/08/07</time></a></li>
-<li><a href="#v4-0"><span class="nav-version">v4.0</span><time datetime="2026-08-04">2026/08/04</time></a></li>
-<li><a href="#v3-2-1"><span class="nav-version">v3.2.1</span><time datetime="2026-08-03">2026/08/03</time></a></li>
-<li><a href="#v3-2"><span class="nav-version">v3.2</span><time datetime="2026-07-27">2026/07/27</time></a></li>
-<li><a href="#v3-1"><span class="nav-version">v3.1</span><time datetime="2026-07-25">2026/07/25</time></a></li>
-<li><a href="#v3-0"><span class="nav-version">v3.0</span><time datetime="2026-07-25">2026/07/25</time></a></li>
-<li><a href="#v2-0"><span class="nav-version">v2.0</span><time datetime="2026-07-23">2026/07/23</time></a></li>
-<li><a href="#v1-0"><span class="nav-version">v1.0</span><time datetime="2026-06-16">2026/06/16</time></a></li></ol></nav></dialog>
-<script>
-'use strict';
-const menu=document.getElementById('version-menu');
-const opener=document.getElementById('open-menu');
-const sections=Array.from(document.querySelectorAll('.release'));
-const links=Array.from(document.querySelectorAll('.navlist a'));
-function closeMenu(){if(menu.open)menu.close();}
-opener.addEventListener('click',()=>{menu.showModal();opener.setAttribute('aria-expanded','true');document.body.classList.add('menu-open');});
-document.getElementById('close-menu').addEventListener('click',closeMenu);
-menu.addEventListener('close',()=>{opener.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');});
-menu.addEventListener('click',e=>{if(e.target===menu){const r=menu.getBoundingClientRect();if(e.clientY<r.top||e.clientY>r.bottom||e.clientX<r.left||e.clientX>r.right)closeMenu();}});
-let pending=false;
-function updateActive(){let current=sections[0];for(const section of sections){if(section.getBoundingClientRect().top<=110)current=section;}if(Math.ceil(window.scrollY+window.innerHeight)>=document.documentElement.scrollHeight-2)current=sections[sections.length-1];for(const link of links){if(link.hash==='#'+current.id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');}pending=false;}
-window.addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(updateActive);}},{passive:true});
-window.addEventListener('resize',()=>{if(window.innerWidth>760)closeMenu();updateActive();});
-links.forEach(link=>link.addEventListener('click',e=>{const target=document.getElementById(link.hash.slice(1));if(!target)return;e.preventDefault();if(menu.open)closeMenu();requestAnimationFrame(()=>{history.pushState(null,'',link.hash);target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});});}));
-window.addEventListener('hashchange',()=>requestAnimationFrame(updateActive));
-updateActive();
-</script>
+  <main class="maintenance-simple" aria-labelledby="maintenance-title">
+    <div class="maintenance-code">503</div>
+    <h1 id="maintenance-title" lang="en">Service Unavailable</h1>
+    <p>ただいまメンテナンス中です。</p>
+    <p>時間をおいて、再度アクセスしてください。</p>
+    <hr>
+    <small>store_code4162@Domo</small>
+    <div class="terms"><a href="https://yagisan-createstudio.github.io/terms_of_service/" target="_blank" rel="noopener noreferrer">利用規約</a></div>
+  </main>
 </body>
 </html>
